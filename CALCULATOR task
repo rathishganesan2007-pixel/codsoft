@@ -1,0 +1,76 @@
+import os
+
+def clear_screen():
+    """Clears the terminal screen for a clean user interface experience."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    """Performs division with defensive error checking for zero denominators."""
+    if y == 0:
+        return "Error: Division by zero is undefined."
+    return x / y
+
+def calculator():
+    clear_screen()
+    print("====================================")
+    print("    CODSOFT PYTHON TASK: CALCULATOR  ")
+    print("====================================")
+    
+    while True:
+        # 1. Prompting for Core Numeric Values with Validation Exception Blocks
+        try:
+            num1 = float(input("\nEnter the first numeric parameter: "))
+            num2 = float(input("Enter the second numeric parameter: "))
+        except ValueError:
+            print("❌ Invalid Input: Please enter valid numbers only.")
+            continue
+
+        # 2. Presenting Operational Matrix Choices
+        print("\nSupported Operations:")
+        print("  +  : Addition")
+        print("  -  : Subtraction")
+        print("  * : Multiplication")
+        print("  /  : Division")
+        
+        operation = input("\nSelect an operator choice (+, -, *, /): ").strip()
+
+        # 3. Decision Matrix Pipeline Configuration 
+        if operation == '+':
+            result = add(num1, num2)
+        elif operation == '-':
+            result = subtract(num1, num2)
+        elif operation == '*':
+            result = multiply(num1, num2)
+        elif operation == '/':
+            result = divide(num1, num2)
+        else:
+            print("❌ Invalid Operation: Operator choice parameter not recognized.")
+            continue
+
+        # 4. Compiling and Displaying the Formatted Result Manifest
+        print("\n------------------------------------")
+        print(f"Calculation Result: {num1} {operation} {num2} = {result}")
+        print("------------------------------------")
+
+        # 5. Continuous Loop Evaluation Sequence
+        next_calc = input("\nWould you like to process another calculation? (yes/no): ").strip().lower()
+        if next_calc not in ['yes', 'y']:
+            print("\nExiting System. Best of luck with your internship portfolio review!")
+            break
+        
+        clear_screen()
+        print("====================================")
+        print("    CODSOFT PYTHON TASK: CALCULATOR  ")
+        print("====================================")
+
+if __name__ == "__main__":
+    calculator()
