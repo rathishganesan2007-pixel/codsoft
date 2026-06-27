@@ -64,7 +64,7 @@ def calculator():
         # 5. Continuous Loop Evaluation Sequence
         next_calc = input("\nWould you like to process another calculation? (yes/no): ").strip().lower()
         if next_calc not in ['yes', 'y']:
-            print("\nExiting System. Best of luck with your internship portfolio review!")
+            print("\nThank you for using this Calculator Software!")
             break
         
         clear_screen()
